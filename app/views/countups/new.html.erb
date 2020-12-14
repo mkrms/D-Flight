@@ -1,0 +1,4 @@
+<%= form_for(@countup) do |f| %>
+    <%= f.collection_radio_buttons(:gamemode_id, Gamemode.all, :id, :modename) %>
+    <%= f.submit %>
+<% end %>

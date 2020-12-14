@@ -1,0 +1,21 @@
+<%= @gamemode.modename%>
+<% @rounds.each do |round|%>
+<div>
+    id:<%= round.id%>
+    1st:<%= round.r_first %>
+    2nd:<%= round.r_second %>
+    3rd:<%= round.r_third %>
+    sum:<%= round.r_sum %>
+    ave:<%= round.r_ave %>
+</div>
+<% end %>
+array<%= @array%>
+<%= form_for [@countup, @round] do |f|%>
+    <%= f.number_field :r_first, :placeholder => '1st', class: 'form-control'%>
+    <%= f.number_field :r_second, :placeholder => '2nd', class: 'form-control'%>
+    <%= f.number_field :r_third, :placeholder => '3rd', class: 'form-control'%>
+
+    <%= f.hidden_field :countup_id, value:@countup.id %>
+
+    <%= f.submit %>
+<% end %>

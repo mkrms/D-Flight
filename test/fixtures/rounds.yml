@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  r_first: MyString
+  r_second: MyString
+  r_third: MyString
+  r_sum: 1
+  r_ave: 1.5
+
+two:
+  r_first: MyString
+  r_second: MyString
+  r_third: MyString
+  r_sum: 1
+  r_ave: 1.5
