@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_132503) do
+ActiveRecord::Schema.define(version: 2020_12_28_142431) do
 
   create_table "countups", force: :cascade do |t|
     t.float "rate"
@@ -26,8 +26,6 @@ ActiveRecord::Schema.define(version: 2020_12_14_132503) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "modename"
-    t.integer "countup_id"
-    t.index ["countup_id"], name: "index_gamemodes_on_countup_id"
   end
 
   create_table "rounds", force: :cascade do |t|

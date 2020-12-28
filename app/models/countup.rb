@@ -1,5 +1,5 @@
 class Countup < ApplicationRecord
-    has_many :gamemode
+    belongs_to :gamemode
     has_many :rounds
     belongs_to :user
 end
