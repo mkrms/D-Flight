@@ -1,1 +1,5 @@
-<%= link_to  "Countup", countups_path %>
+<% if user_signed_in?%>
+    <%= render 'logined'%>
+<%else%>
+    <%= render 'not_login'%>
+<%end%>

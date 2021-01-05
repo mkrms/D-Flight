@@ -1,0 +1,53 @@
+<div>
+    <div>
+    <input type="button" value="1" onclick="edit(this)">
+    <input type="button" value="2" onclick="edit(this)">
+    <input type="button" value="3" onclick="edit(this)">
+    <input type="button" value="4" onclick="edit(this)">
+    <input type="button" value="5" onclick="edit(this)">
+    </div>
+
+    <div>
+    <input type="button" value="6" onclick="edit(this)">
+    <input type="button" value="7" onclick="edit(this)">
+    <input type="button" value="8" onclick="edit(this)">
+    <input type="button" value="9" onclick="edit(this)">
+    <input type="button" value="10" onclick="edit(this)">
+    </div>
+
+    <div>
+    <input type="button" value="11" onclick="edit(this)">
+    <input type="button" value="12" onclick="edit(this)">
+    <input type="button" value="13" onclick="edit(this)">
+    <input type="button" value="14" onclick="edit(this)">
+    <input type="button" value="15" onclick="edit(this)">
+    </div>
+
+    <div>
+    <input type="button" value="16" onclick="edit(this)">
+    <input type="button" value="17" onclick="edit(this)">
+    <input type="button" value="18" onclick="edit(this)">
+    <input type="button" value="19" onclick="edit(this)">
+    <input type="button" value="20" onclick="edit(this)">
+    <input type="button" value="50" onclick="edit(this)">
+    </div>
+
+    <div>
+    <input type="button" value="double" onclick="double(this)">
+    <input type="button" value="triple" onclick="triple(this)">
+    </div>
+
+  </div>
+
+    <script language="javascript" type="text/javascript">
+    var score = document.activeElement;
+    function edit(elem) {
+      score.value = score.value + elem.value;
+    }
+    function double(elem) {
+      score.value = score.value * 2;
+    }
+    function triple(elem) {
+      score.value = score.value * 3;
+    }
+  </script>

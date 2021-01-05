@@ -1,0 +1,9 @@
+<%= form_for [@countup, @round] do |f|%>
+    <%= f.number_field :r_first, :placeholder => '1st', class: 'form-control'%>
+    <%= f.number_field :r_second, :placeholder => '2nd', class: 'form-control'%>
+    <%= f.number_field :r_third, :placeholder => '3rd', class: 'form-control'%>
+
+    <%= f.hidden_field :countup_id, value:@countup.id %>
+
+    <%= f.submit '更新'%>
+<%end%>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_28_142431) do
+ActiveRecord::Schema.define(version: 2021_01_05_144133) do
 
   create_table "countups", force: :cascade do |t|
     t.float "rate"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2020_12_28_142431) do
     t.datetime "updated_at", null: false
     t.integer "gamemode_id"
     t.integer "user_id"
+    t.integer "score"
+    t.float "ave"
     t.index ["gamemode_id"], name: "index_countups_on_gamemode_id"
     t.index ["user_id"], name: "index_countups_on_user_id"
   end
@@ -37,7 +39,9 @@ ActiveRecord::Schema.define(version: 2020_12_28_142431) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "countup_id"
+    t.integer "zeroone_id"
     t.index ["countup_id"], name: "index_rounds_on_countup_id"
+    t.index ["zeroone_id"], name: "index_rounds_on_zeroone_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,6 +55,18 @@ ActiveRecord::Schema.define(version: 2020_12_28_142431) do
     t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "zeroones", force: :cascade do |t|
+    t.float "rate"
+    t.integer "gamemode_id"
+    t.integer "user_id"
+    t.integer "remain"
+    t.float "ave"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gamemode_id"], name: "index_zeroones_on_gamemode_id"
+    t.index ["user_id"], name: "index_zeroones_on_user_id"
   end
 
 end

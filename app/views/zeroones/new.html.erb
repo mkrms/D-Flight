@@ -1,0 +1,5 @@
+<h2 class = 'text-center'>[ゲームモード選択]</h2>
+<%= form_for(@zeroone) do |f| %>
+    <%= f.collection_radio_buttons(:gamemode_id, Gamemode.all.where(id: 11..20), :id, :modename) %>
+    <%= f.submit 'ゲームスタート'%>
+<% end %>

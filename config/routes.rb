@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :countups do
-    resources :rounds, only:[:create]
+    resources :rounds
+  end
+
+  resources :zeroones do
+    resources :rounds
   end
 
   devise_for :users

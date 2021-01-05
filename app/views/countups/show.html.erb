@@ -1,21 +1,39 @@
-<%= @gamemode.modename%>
-<% @rounds.each do |round|%>
 <div>
-    id:<%= round.id%>
-    1st:<%= round.r_first %>
-    2nd:<%= round.r_second %>
-    3rd:<%= round.r_third %>
-    sum:<%= round.r_sum %>
-    ave:<%= round.r_ave %>
+    <h1 class = 'text-center border border-secondary mt-3 p-2'><%= @countup.gamemode.modename %></h1>
+    <h1 class = 'text-center border-bottom border-dark w-50 mx-auto'><%= @countup.score %></h1>
+    <h3 class = 'border-bottom border-dark w-25 text-center float-right'>average:<%= @countup.ave %></h3>
 </div>
-<% end %>
-array<%= @array%>
-<%= form_for [@countup, @round] do |f|%>
-    <%= f.number_field :r_first, :placeholder => '1st', class: 'form-control'%>
-    <%= f.number_field :r_second, :placeholder => '2nd', class: 'form-control'%>
-    <%= f.number_field :r_third, :placeholder => '3rd', class: 'form-control'%>
 
-    <%= f.hidden_field :countup_id, value:@countup.id %>
+<div class = 'mt-5 w-75 mx-auto'>
+<% if @countup.rounds.count == 8 %>
+    <%= link_to  "保存", countups_path, class: 'btn btn-success'%>
+<% else %>
+    <%= form_for [@countup, @round] do |f|%>
+        <h4>Round<%= @countup.rounds.count + 1%></h4>
+        <%= f.number_field :r_first, :placeholder => '1st', autofocus: true, class: 'form-control'%>
+        <%= f.number_field :r_second, :placeholder => '2nd',  class: 'form-control'%>
+        <%= f.number_field :r_third, :placeholder => '3rd',  class: 'form-control'%>
 
-    <%= f.submit %>
+        <%= f.hidden_field :countup_id, value:@countup.id %>
+
+        <%= f.submit 'Next', class: 'btn btn-dark my-2 float-right'%>
+    <% end %>
 <% end %>
+
+<table class = 'table mt-3'>
+    <% @rounds.each.with_index(1) do |round, i|%>
+        <div>
+            <tbody>
+            <td class = 'align-middle h5'>Round<%= i %></td>
+            <td class = 'align-middle'>1st: <%= round.r_first %></td>
+            <td class = 'align-middle'>2nd: <%= round.r_second %></td>
+            <td class = 'align-middle'>3rd: <%= round.r_third %></td>
+            <td class = 'align-middle h6'>Score: <%= round.r_sum %></td>
+            <td class = 'align-middle h6'>Average: <%= round.r_ave %></td>
+            <td class = 'align-middle'><%= link_to  "編集", edit_countup_round_path(round.countup_id, round.id), class: 'btn btn-secondary'%></td>
+            </tbody>
+        </div>
+    <% end %>
+</table>
+
+<%#= render 'normal_key'%>
