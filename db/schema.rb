@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2021_01_05_144133) do
   end
 
   create_table "gamemodes", force: :cascade do |t|
+    t.string "modename"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "modename"
   end
 
   create_table "rounds", force: :cascade do |t|
