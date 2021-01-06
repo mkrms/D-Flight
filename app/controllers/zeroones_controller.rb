@@ -4,8 +4,8 @@ class ZeroonesController < ApplicationController
     def index
         @zeroones = current_user.zeroones.all
         @zeroones.each do |zeroone|
-        zeroone.score = zeroone.rounds.pluck(:r_sum).compact.sum
-        zeroone.ave = zeroone.score / 8
+        zeroone.remain = 701 - zeroone.z_rounds.pluck(:r_sum).compact.sum
+        #zeroone.ave = zeroone.score / 8
         zeroone.save!
         end
     end
@@ -16,23 +16,23 @@ class ZeroonesController < ApplicationController
     end
     
     def show
-        @round = Round.new
-        @rounds = Round.all.where(zeroone_id: @zeroone.id)
+        @z_round = ZRound.new
+        @z_rounds = ZRound.all.where(zeroone_id: @zeroone.id)
         
-        @rounds.each do |round|
+        @z_rounds.each do |round|
         array = []
         array << round.r_first.to_i
         array << round.r_second.to_i
         array << round.r_third.to_i
-        
+
         round.r_sum = array.sum 
-        round.r_ave = array.sum / array.length
+        round.r_ave = array.sum / array.length 
         round.save!
         end
-        
-        if @zeroone.rounds.count > 0
-        @zeroone.remain = 701 - @zeroone.rounds.pluck(:r_sum).compact.sum
-        @zeroone.ave = @zeroone.rounds.pluck(:r_ave).compact.sum / @zeroone.rounds.pluck(:r_ave).compact.length
+
+        if @zeroone.z_rounds.count > 0
+        @zeroone.remain = 701 - @zeroone.z_rounds.pluck(:r_sum).compact.sum
+        #@zeroone.ave = @zeroone.z_rounds.pluck(:r_ave).compact.sum / @zeroone.z_rounds.pluck(:r_ave).compact.length
         end
     end
     

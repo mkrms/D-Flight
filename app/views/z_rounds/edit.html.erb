@@ -1,0 +1,9 @@
+<%= form_for [@zeroone, @z_round] do |f|%>
+    <%= f.number_field :r_first, :placeholder => '1st', class: 'form-control'%>
+    <%= f.number_field :r_second, :placeholder => '2nd', class: 'form-control'%>
+    <%= f.number_field :r_third, :placeholder => '3rd', class: 'form-control'%>
+
+    <%= f.hidden_field :zeroone_id, value:@zeroone.id %>
+
+    <%= f.submit '更新'%>
+<%end%>

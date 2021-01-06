@@ -9,9 +9,7 @@ class CreateRounds < ActiveRecord::Migration[5.2]
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "countup_id"
-    t.integer "zeroone_id"
     t.index ["countup_id"], name: "index_rounds_on_countup_id"
-    t.index ["zeroone_id"], name: "index_rounds_on_zeroone_id"
 
       t.timestamps
     end

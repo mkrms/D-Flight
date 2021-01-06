@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_05_144133) do
+ActiveRecord::Schema.define(version: 2021_01_06_125329) do
 
   create_table "countups", force: :cascade do |t|
     t.float "rate"
@@ -39,9 +39,7 @@ ActiveRecord::Schema.define(version: 2021_01_05_144133) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "countup_id"
-    t.integer "zeroone_id"
     t.index ["countup_id"], name: "index_rounds_on_countup_id"
-    t.index ["zeroone_id"], name: "index_rounds_on_zeroone_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,11 +48,23 @@ ActiveRecord::Schema.define(version: 2021_01_05_144133) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "z_rounds", force: :cascade do |t|
+    t.integer "r_first"
+    t.integer "r_second"
+    t.integer "r_third"
+    t.integer "r_sum"
+    t.float "r_ave"
+    t.integer "zeroone_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["zeroone_id"], name: "index_z_rounds_on_zeroone_id"
   end
 
   create_table "zeroones", force: :cascade do |t|

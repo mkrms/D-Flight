@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  get 'z_rounds/edit'
   resources :countups do
     resources :rounds
   end
 
   resources :zeroones do
-    resources :rounds
+    resources :z_rounds
   end
 
   devise_for :users

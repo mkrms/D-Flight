@@ -23,7 +23,7 @@
                 </thead>
                 <tbody>
             <% @zeroones.each do |zeroone| %>
-                    <td><%= zeroone.score %></td>
+                    <td><%= zeroone.remain %></td>
                     <td><%= zeroone.created_at.strftime('%Y/%m/%d %H:%M')%></td>
                     <td><%= link_to  "詳細", zeroone_path(zeroone.id) %></td>
                 </tbody>
