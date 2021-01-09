@@ -10,9 +10,9 @@
 <% else %>
     <%= form_for [@countup, @round] do |f|%>
         <h4>Round<%= @countup.rounds.count + 1%></h4>
-        <%= f.number_field :r_first, :placeholder => '1st', autofocus: true, class: 'form-control'%>
-        <%= f.number_field :r_second, :placeholder => '2nd',  class: 'form-control'%>
-        <%= f.number_field :r_third, :placeholder => '3rd',  class: 'form-control'%>
+        <%= f.number_field :r_first, :placeholder => '1st', onfocus: "setActiveScore(this)", readonly: "readonly", class: 'form-control'%>
+        <%= f.number_field :r_second, :placeholder => '2nd', onfocus: "setActiveScore(this)",  readonly: "readonly", class: 'form-control'%>
+        <%= f.number_field :r_third, :placeholder => '3rd',  onfocus: "setActiveScore(this)", readonly: "readonly", class: 'form-control'%>
 
         <%= f.hidden_field :countup_id, value:@countup.id %>
 
@@ -36,4 +36,4 @@
     <% end %>
 </table>
 
-<%#= render 'normal_key'%>
+<%= render 'normal_key'%>

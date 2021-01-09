@@ -4,7 +4,7 @@ class ZeroonesController < ApplicationController
     def index
         @zeroones = current_user.zeroones.all
         @zeroones.each do |zeroone|
-        zeroone.remain = 701 - zeroone.z_rounds.pluck(:r_sum).compact.sum
+        zeroone.remain = "#{zeroone.gamemode.modename}".to_i - zeroone.z_rounds.pluck(:r_sum).compact.sum
         #zeroone.ave = zeroone.score / 8
         zeroone.save!
         end
@@ -17,6 +17,7 @@ class ZeroonesController < ApplicationController
     
     def show
         @z_round = ZRound.new
+        @burst = @zeroone.z_rounds.last
         @z_rounds = ZRound.all.where(zeroone_id: @zeroone.id)
         
         @z_rounds.each do |round|
@@ -31,7 +32,7 @@ class ZeroonesController < ApplicationController
         end
 
         if @zeroone.z_rounds.count > 0
-        @zeroone.remain = 701 - @zeroone.z_rounds.pluck(:r_sum).compact.sum
+        @zeroone.remain = "#{@zeroone.gamemode.modename}".to_i - @zeroone.z_rounds.pluck(:r_sum).compact.sum
         #@zeroone.ave = @zeroone.z_rounds.pluck(:r_ave).compact.sum / @zeroone.z_rounds.pluck(:r_ave).compact.length
         end
     end

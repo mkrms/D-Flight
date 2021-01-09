@@ -5,10 +5,20 @@
 </div>
 
 <div class = 'mt-5 w-75 mx-auto'>
-<% if @zeroone.remain == 0 %>
+<% if @zeroone.remain == 0 || @zeroone.z_rounds.count == 20%>
     <%= link_to  "保存", zeroones_path, class: 'btn btn-success'%>
-<% elsif @zeroone.z_rounds.count == 20%>
-    <%= link_to  "保存", zeroones_path, class: 'btn btn-success'%>
+<% elsif @zeroone.remain.to_i < 0%>
+Burst!
+    <%= form_for [@zeroone, @burst] do |f|%>
+        <%= f.hidden_field :r_first, value: 0%>
+        <%= f.hidden_field :r_second, value: 0%>
+        <%= f.hidden_field :r_third, value: 0%>
+
+        <%= f.hidden_field :zeroone_id, value:@zeroone.id %>
+        <%= f.hidden_field :id, value:@burst.id %>
+
+        <%= f.submit 'Burst', class: 'btn btn-dark my-2 float-right'%>
+    <% end %>
 <% else %>
     <%= form_for [@zeroone, @z_round] do |f|%>
         <h4>Round<%= @zeroone.z_rounds.count + 1%></h4>
@@ -38,4 +48,4 @@
     <% end %>
 </table>
 
-<%#= render 'normal_key'%>
+<%= render 'normal_key'%>
