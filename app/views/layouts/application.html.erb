@@ -17,7 +17,6 @@
       Flight
     </a>
     <% if user_signed_in? %>
-        <h4 class = 'text-white text-center'>ようこそ、<%= current_user.name %>さん</h4>
       <div>
         <%= link_to 'プロフィール変更', edit_user_registration_path, class: 'btn btn-primary'%>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete ,class:'btn btn-secondary'%>
@@ -29,8 +28,6 @@
       </div>
     <% end %>
   </nav>
-    <div class = 'container'>
     <%= yield %>
-    </div>
   </body>
 </html>

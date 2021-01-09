@@ -1,7 +1,7 @@
-<div>
+<div class = 'container'>
     <h1 class = 'text-center border border-secondary mt-3 p-2'><%= @countup.gamemode.modename %></h1>
     <h1 class = 'text-center border-bottom border-dark w-50 mx-auto'><%= @countup.score %></h1>
-    <h3 class = 'border-bottom border-dark w-25 text-center float-right'>average:<%= @countup.ave %></h3>
+    <h3 class = 'border-bottom border-dark w-25 text-center float-right d-none d-md-block'>average:<%= @countup.ave %></h3>
 </div>
 
 <div class = 'mt-5 w-75 mx-auto'>
@@ -25,9 +25,9 @@
         <div>
             <tbody>
             <td class = 'align-middle h5'>Round<%= i %></td>
-            <td class = 'align-middle'>1st: <%= round.r_first %></td>
-            <td class = 'align-middle'>2nd: <%= round.r_second %></td>
-            <td class = 'align-middle'>3rd: <%= round.r_third %></td>
+            <td class = 'align-middle d-none d-md-table-cell'>1st: <%= round.r_first %></td>
+            <td class = 'align-middle d-none d-md-table-cell'>2nd: <%= round.r_second %></td>
+            <td class = 'align-middle d-none d-md-table-cell'>3rd: <%= round.r_third %></td>
             <td class = 'align-middle h6'>Score: <%= round.r_sum %></td>
             <td class = 'align-middle h6'>Average: <%= round.r_ave %></td>
             <td class = 'align-middle'><%= link_to  "編集", edit_countup_round_path(round.countup_id, round.id), class: 'btn btn-secondary'%></td>
