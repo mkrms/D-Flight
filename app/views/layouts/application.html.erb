@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Flight</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,7 +17,7 @@
       Flight
     </a>
     <% if user_signed_in? %>
-      <strong><%#= link_to current_user.username, pages_show_path %></strong>
+        <h4 class = 'text-white text-center'>ようこそ、<%= current_user.name %>さん</h4>
       <div>
         <%= link_to 'プロフィール変更', edit_user_registration_path, class: 'btn btn-primary'%>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete ,class:'btn btn-secondary'%>

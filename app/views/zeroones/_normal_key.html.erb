@@ -1,0 +1,65 @@
+<div class = 'row'>
+    <div class = 'col-6'>
+    <div class = ''>
+    <input type="button" value="1" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="2" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="3" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="4" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="5" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    </div>
+
+    <div class = ''>
+    <input type="button" value="6" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="7" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="8" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="9" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="10" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    </div>
+
+    <div class = ''>
+    <input type="button" value="11" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="12" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="13" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="14" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="15" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    </div>
+
+    <div>
+    <input type="button" value="16" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="17" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="18" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="19" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="20" onclick="edit(this)" class = 'btn col-2 border border-dark m-1'>
+    </div>
+
+    <div>
+    <input type="button" value="Bull" onclick="bull(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="double" onclick="double(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="triple" onclick="triple(this)" class = 'btn col-2 border border-dark m-1'>
+    <input type="button" value="Reset" onclick="reset(this)" class = 'btn col-2 border border-dark m-1'>
+    </div>
+    </div>
+
+  </div>
+
+    <script language="javascript" type="text/javascript">
+    var score = document.querySelector("#default")
+    function setActiveScore(elem) {
+      score = elem
+    }
+    function edit(elem) {
+      score.value = score.value + elem.value;
+    }
+    function double(elem) {
+      score.value = score.value * 2;
+    }
+    function triple(elem) {
+      score.value = score.value * 3;
+    }
+    function bull(elem) {
+      score.value = score.value + 50;
+    }
+    function reset() {
+      score.value = ''
+    }
+  </script>

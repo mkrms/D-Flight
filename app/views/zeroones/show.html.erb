@@ -1,7 +1,7 @@
 <div>
     <h1 class = 'text-center border border-secondary mt-3 p-2'><%= @zeroone.gamemode.modename %></h1>
     <h1 class = 'text-center border-bottom border-dark w-50 mx-auto'><%= @zeroone.remain %></h1>
-    <h3 class = 'border-bottom border-dark w-25 text-center float-right'>average:<%#= @zeroone.ave %></h3>
+    <h3 class = 'border-bottom border-dark w-25 text-center float-right'>average:<%= @zeroone.ave %></h3>
 </div>
 
 <div class = 'mt-5 w-75 mx-auto'>
@@ -22,9 +22,9 @@ Burst!
 <% else %>
     <%= form_for [@zeroone, @z_round] do |f|%>
         <h4>Round<%= @zeroone.z_rounds.count + 1%></h4>
-        <%= f.number_field :r_first, :placeholder => '1st', autofocus: true, class: 'form-control'%>
-        <%= f.number_field :r_second, :placeholder => '2nd',  class: 'form-control'%>
-        <%= f.number_field :r_third, :placeholder => '3rd',  class: 'form-control'%>
+        <%= f.number_field :r_first, :placeholder => '1st', onfocus: "setActiveScore(this)", readonly: "readonly", class: 'form-control'%>
+        <%= f.number_field :r_second, :placeholder => '2nd', onfocus: "setActiveScore(this)",  readonly: "readonly", class: 'form-control'%>
+        <%= f.number_field :r_third, :placeholder => '3rd',  onfocus: "setActiveScore(this)", readonly: "readonly", class: 'form-control'%>
 
         <%= f.hidden_field :zeroone_id, value:@zeroone.id %>
 
@@ -48,4 +48,6 @@ Burst!
     <% end %>
 </table>
 
+<%if @zeroone.remain != 0%>
 <%= render 'normal_key'%>
+<% end %>
